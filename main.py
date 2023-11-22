@@ -1,16 +1,16 @@
 from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
 
 class ProductApp(App):
     def build(self):
-        layout = BoxLayout(orientation='vertical', spacing=10, padding=10)
+        layout = GridLayout(cols=1, spacing=0, padding=0)
 
-        my_products_button = Button(text='Мои товары', size_hint=(None, None))
+        my_products_button = Button(text='Мои товары', size_hint=(1, None), height=100)
         my_products_button.bind(on_press=self.My_products)
         layout.add_widget(my_products_button)
 
-        search_products_button = Button(text='Поиск товаров', size_hint=(None, None))
+        search_products_button = Button(text='Поиск товаров', size_hint=(1, None), height=100)
         search_products_button.bind(on_press=self.Search_products)
         layout.add_widget(search_products_button)
 
@@ -24,4 +24,3 @@ class ProductApp(App):
 
 if __name__ == '__main__':
     ProductApp().run()
-
